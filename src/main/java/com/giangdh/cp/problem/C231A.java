@@ -1,36 +1,25 @@
-package com.giangdh.cp.template;
+package com.giangdh.cp.problem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-import java.util.StringTokenizer;
+import java.util.*;
 
-/*
-1
-10
-399 379 272 82 10 160 362 432 553 617
-1007 987 880 690 618 448 246 176 55 9
-
- */
-public class Tem2 {
+public class C231A {
 
     public static void main(String[] args) {
         FastScanner fs = new FastScanner();
         PrintWriter out = new PrintWriter(System.out);
         int T = fs.nextInt();
+        int rs = 0;
         for (int tt = 0; tt < T; tt++) {
-            int a = fs.nextInt(), b = fs.nextInt();
-            if (a < b || a % 2 != b % 2) {
-                System.out.println("NO");
-            } else {
-                System.out.println("YES");
+            int a = fs.nextInt(), b = fs.nextInt(), c = fs.nextInt();
+            if (a + b + c > 1) {
+                rs++;
             }
         }
+        System.out.println(rs);
         out.close();
     }
 
@@ -60,11 +49,9 @@ public class Tem2 {
     }
 
     static long exp(long base, long exp) {
-        if (exp == 0)
-            return 1;
+        if (exp == 0) return 1;
         long half = exp(base, exp / 2);
-        if (exp % 2 == 0)
-            return mul(half, half);
+        if (exp % 2 == 0) return mul(half, half);
         return mul(half, mul(half, base));
     }
 
@@ -98,12 +85,11 @@ public class Tem2 {
         StringTokenizer st = new StringTokenizer("");
 
         String next() {
-            while (!st.hasMoreTokens())
-                try {
-                    st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            while (!st.hasMoreTokens()) try {
+                st = new StringTokenizer(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return st.nextToken();
         }
 
@@ -124,3 +110,4 @@ public class Tem2 {
     }
 
 }
+
