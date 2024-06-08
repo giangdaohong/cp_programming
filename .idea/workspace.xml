@@ -7,8 +7,6 @@
     <list default="true" id="9e7a4ad6-a54f-4dce-a2d3-ce47a37310f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/giangdh/cp/template/FastIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/giangdh/cp/template/FastIO_001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/giangdh/cp/template/Tem2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/giangdh/cp/template/FastIO_002.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717831990825</updated>
       <workItem from="1717831991951" duration="1275000" />
-      <workItem from="1717833277898" duration="3673000" />
+      <workItem from="1717833277898" duration="3744000" />
     </task>
     <servers />
   </component>
