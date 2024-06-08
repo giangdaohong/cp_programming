@@ -1,36 +1,22 @@
-package com.giangdh.cp.template;
+package com.giangdh.cp.problem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-import java.util.StringTokenizer;
+import java.util.*;
 
-/*
-1
-10
-399 379 272 82 10 160 362 432 553 617
-1007 987 880 690 618 448 246 176 55 9
-
- */
-public class Tem2 {
+public class C236A {
 
     public static void main(String[] args) {
         FastScanner fs = new FastScanner();
         PrintWriter out = new PrintWriter(System.out);
-        int T = fs.nextInt();
-        for (int tt = 0; tt < T; tt++) {
-            int a = fs.nextInt(), b = fs.nextInt();
-            if (a < b || a % 2 != b % 2) {
-                System.out.println("NO");
-            } else {
-                System.out.println("YES");
-            }
+        String T = fs.next();
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < T.length(); i++) {
+            set.add(String.valueOf(T.charAt(i)));
         }
+        System.out.println(set.size() % 2 == 0 ? "CHAT WITH HER!" : "IGNORE HIM!");
         out.close();
     }
 

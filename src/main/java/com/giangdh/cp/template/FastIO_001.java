@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class FastIO {
+public class FastIO_001 {
 
     public static void main(String[] args) throws IOException {
         Reader s = new Reader();
