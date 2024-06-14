@@ -1,29 +1,27 @@
-package com.giangdh.cp.template;
+package com.giangdh.cp.problem.math;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class FastIO_002 {
+
+public class C228A {
 
     public static void main(String[] args) {
         FastScanner fs = new FastScanner();
         PrintWriter out = new PrintWriter(System.out);
-        int T = fs.nextInt();
-        for (int tt = 0; tt < T; tt++) {
-            int a = fs.nextInt(), b = fs.nextInt();
-            if (a < b || a % 2 != b % 2) {
-                System.out.println("NO");
-            } else {
-                System.out.println("YES");
-            }
-        }
+        int a = fs.nextInt(), b = fs.nextInt(), c = fs.nextInt(), d = fs.nextInt();
+
+        Set<Integer> set = new HashSet<>();
+        set.add(a);
+        set.add(b);
+        set.add(c);
+        set.add(d);
+
+        System.out.println(4 - set.size());
+
         out.close();
     }
 
@@ -53,11 +51,9 @@ public class FastIO_002 {
     }
 
     static long exp(long base, long exp) {
-        if (exp == 0)
-            return 1;
+        if (exp == 0) return 1;
         long half = exp(base, exp / 2);
-        if (exp % 2 == 0)
-            return mul(half, half);
+        if (exp % 2 == 0) return mul(half, half);
         return mul(half, mul(half, base));
     }
 
@@ -91,12 +87,11 @@ public class FastIO_002 {
         StringTokenizer st = new StringTokenizer("");
 
         String next() {
-            while (!st.hasMoreTokens())
-                try {
-                    st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            while (!st.hasMoreTokens()) try {
+                st = new StringTokenizer(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return st.nextToken();
         }
 
@@ -114,13 +109,6 @@ public class FastIO_002 {
         long nextLong() {
             return Long.parseLong(next());
         }
-
-        public int[][] next2dIntArray(int n, int m) throws IOException {
-            int a[][] = new int[n][m];
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < m; j++)
-                    a[i][j] = nextInt();
-            return a;
-        }
     }
+
 }

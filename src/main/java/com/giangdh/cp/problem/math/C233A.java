@@ -1,4 +1,4 @@
-package com.giangdh.cp.problem;
+package com.giangdh.cp.problem.math;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,22 +6,27 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.*;
 
-
-public class C228A {
+public class C233A {
 
     public static void main(String[] args) {
         FastScanner fs = new FastScanner();
         PrintWriter out = new PrintWriter(System.out);
-        int a = fs.nextInt(), b = fs.nextInt(), c = fs.nextInt(), d = fs.nextInt();
+        int T = fs.nextInt();
+        //  p of pi = i and pi != i.
 
-        Set<Integer> set = new HashSet<>();
-        set.add(a);
-        set.add(b);
-        set.add(c);
-        set.add(d);
 
-        System.out.println(4 - set.size());
+        // 1 2 3 4 ... 5 6
+        // 2 1 4 3 ... 6 5
 
+        // i = 5 => p(pi) = p(8) = 5;
+        // i = 8 => p(pi) = p(5) = 8;
+
+        // a b c d e f ... p(a) = 1; p(b) = 2;
+        int cnt = 0;
+        StringBuilder sb = new StringBuilder();
+        while (cnt < T) {
+
+        }
         out.close();
     }
 
@@ -51,9 +56,11 @@ public class C228A {
     }
 
     static long exp(long base, long exp) {
-        if (exp == 0) return 1;
+        if (exp == 0)
+            return 1;
         long half = exp(base, exp / 2);
-        if (exp % 2 == 0) return mul(half, half);
+        if (exp % 2 == 0)
+            return mul(half, half);
         return mul(half, mul(half, base));
     }
 
@@ -87,11 +94,12 @@ public class C228A {
         StringTokenizer st = new StringTokenizer("");
 
         String next() {
-            while (!st.hasMoreTokens()) try {
-                st = new StringTokenizer(br.readLine());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            while (!st.hasMoreTokens())
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             return st.nextToken();
         }
 

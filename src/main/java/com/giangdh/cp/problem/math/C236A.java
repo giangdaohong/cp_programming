@@ -1,4 +1,4 @@
-package com.giangdh.cp.problem;
+package com.giangdh.cp.problem.math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

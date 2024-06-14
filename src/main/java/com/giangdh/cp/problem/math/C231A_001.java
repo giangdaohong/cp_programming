@@ -1,4 +1,4 @@
-package com.giangdh.cp.template;
+package com.giangdh.cp.problem.math;
 
 // Working program using Reader Class
 
@@ -6,18 +6,20 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class FastIO_001 {
+public class C231A_001 {
 
     public static void main(String[] args) throws IOException {
         Reader s = new Reader();
-        int n = s.nextInt();
-        int k = s.nextInt();
-        int count = 0;
-        while (n-- > 0) {
-            int x = s.nextInt();
-            if (x % k == 0) count++;
+
+        int T = s.nextInt();
+        int rs = 0;
+        for (int tt = 0; tt < T; tt++) {
+            int a = s.nextInt(), b = s.nextInt(), c = s.nextInt();
+            if (a + b + c > 1) {
+                rs++;
+            }
         }
-        System.out.println(count);
+        System.out.println(rs);
     }
 
     static class Reader {
@@ -117,14 +119,6 @@ public class FastIO_001 {
         public void close() throws IOException {
             if (din == null) return;
             din.close();
-        }
-
-        public int[][] next2dIntArray(int n, int m) throws IOException {
-            int a[][] = new int[n][m];
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < m; j++)
-                    a[i][j] = nextInt();
-            return a;
         }
     }
 

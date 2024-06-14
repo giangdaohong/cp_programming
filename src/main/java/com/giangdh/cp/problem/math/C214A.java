@@ -1,29 +1,24 @@
-package com.giangdh.cp.template;
+package com.giangdh.cp.problem.math;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class FastIO_002 {
+public class C214A {
 
     public static void main(String[] args) {
         FastScanner fs = new FastScanner();
         PrintWriter out = new PrintWriter(System.out);
-        int T = fs.nextInt();
-        for (int tt = 0; tt < T; tt++) {
-            int a = fs.nextInt(), b = fs.nextInt();
-            if (a < b || a % 2 != b % 2) {
-                System.out.println("NO");
-            } else {
-                System.out.println("YES");
-            }
+        int n = fs.nextInt(), m = fs.nextInt();
+        int cnt = 0;
+        int a = 0;
+        for (int b = 0; b*b <= m; b++) {
+            a = m - b*b;
+            if(a >= 0 && a*a == n - b) cnt++;
         }
+        System.out.println(cnt);
         out.close();
     }
 
@@ -114,13 +109,6 @@ public class FastIO_002 {
         long nextLong() {
             return Long.parseLong(next());
         }
-
-        public int[][] next2dIntArray(int n, int m) throws IOException {
-            int a[][] = new int[n][m];
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < m; j++)
-                    a[i][j] = nextInt();
-            return a;
-        }
     }
+
 }

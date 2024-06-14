@@ -1,25 +1,81 @@
-package com.giangdh.cp.problem;
+package com.giangdh.cp.problem.math;
 
-// Working program using Reader Class
+import java.io.*;
+import java.util.*;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-public class C231A_001 {
+public class C177A {
 
     public static void main(String[] args) throws IOException {
-        Reader s = new Reader();
+        Reader fs = new Reader();
+        PrintWriter out = new PrintWriter(System.out);
+        int n = fs.nextInt();
+        Integer[][] arr = fs.next2dIntArray(n, n);
+        int sum = 0;
+        int mid = n / 2;
+        for (int i = 0; i < n; i++)
+            sum += arr[i][i] + arr[mid][i] + arr[i][mid] + arr[i][n - i - 1];
+        sum -= (3 * arr[mid][mid]);
+        System.out.println(sum);
+        out.close();
+    }
 
-        int T = s.nextInt();
-        int rs = 0;
-        for (int tt = 0; tt < T; tt++) {
-            int a = s.nextInt(), b = s.nextInt(), c = s.nextInt();
-            if (a + b + c > 1) {
-                rs++;
-            }
+    static final Random random = new Random();
+    static final int mod = 1_000_000_007;
+
+    static void ruffleSort(int[] a) {
+        int n = a.length;// shuffle, then sort
+        for (int i = 0; i < n; i++) {
+            int oi = random.nextInt(n), temp = a[oi];
+            a[oi] = a[i];
+            a[i] = temp;
         }
-        System.out.println(rs);
+        Arrays.sort(a);
+    }
+
+    static long add(long a, long b) {
+        return (a + b) % mod;
+    }
+
+    static long sub(long a, long b) {
+        return ((a - b) % mod + mod) % mod;
+    }
+
+    static long mul(long a, long b) {
+        return (a * b) % mod;
+    }
+
+    static long exp(long base, long exp) {
+        if (exp == 0)
+            return 1;
+        long half = exp(base, exp / 2);
+        if (exp % 2 == 0)
+            return mul(half, half);
+        return mul(half, mul(half, base));
+    }
+
+    static long[] factorials = new long[2_000_001];
+    static long[] invFactorials = new long[2_000_001];
+
+    static void precompFacts() {
+        factorials[0] = invFactorials[0] = 1;
+        for (int i = 1; i < factorials.length; i++)
+            factorials[i] = mul(factorials[i - 1], i);
+        invFactorials[factorials.length - 1] = exp(factorials[factorials.length - 1], mod - 2);
+        for (int i = invFactorials.length - 2; i >= 0; i--)
+            invFactorials[i] = mul(invFactorials[i + 1], i + 1);
+    }
+
+    static long nCk(int n, int k) {
+        return mul(factorials[n], mul(invFactorials[k], invFactorials[n - k]));
+    }
+
+    static void sort(int[] a) {
+        ArrayList<Integer> l = new ArrayList<>();
+        for (int i : a)
+            l.add(i);
+        Collections.sort(l);
+        for (int i = 0; i < a.length; i++)
+            a[i] = l.get(i);
     }
 
     static class Reader {
@@ -120,7 +176,13 @@ public class C231A_001 {
             if (din == null) return;
             din.close();
         }
+
+        public Integer[][] next2dIntArray(int n, int m) throws IOException {
+            Integer a[][] = new Integer[n][m];
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++)
+                    a[i][j] = nextInt();
+            return a;
+        }
     }
-
 }
-
