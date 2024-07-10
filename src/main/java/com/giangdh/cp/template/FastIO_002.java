@@ -114,13 +114,6 @@ public class FastIO_002 {
         long nextLong() {
             return Long.parseLong(next());
         }
-
-        public int[][] next2dIntArray(int n, int m) throws IOException {
-            int a[][] = new int[n][m];
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < m; j++)
-                    a[i][j] = nextInt();
-            return a;
-        }
     }
+
 }

@@ -118,14 +118,6 @@ public class FastIO_001 {
             if (din == null) return;
             din.close();
         }
-
-        public int[][] next2dIntArray(int n, int m) throws IOException {
-            int a[][] = new int[n][m];
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < m; j++)
-                    a[i][j] = nextInt();
-            return a;
-        }
     }
 
 }
